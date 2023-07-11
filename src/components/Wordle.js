@@ -15,6 +15,17 @@ export default function Wordle() {
 
     }, [handleKeyup])
 
+    useEffect(() => {
+        getSolution()
+    }, [isCorrect])
+
+    useEffect(() => {
+        if (turn > 5 && isCorrect === false) {
+            setSavedSolution(solution)
+            getSolution()
+        }
+    }, [isCorrect, turn])
+
     return (
         <>
             <header>
