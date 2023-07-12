@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Grid from "./Grid"
 import useFetch from "../hooks/useFetch"
 import useWordle from "../hooks/useWordle"
+import Keyboard from "./Keyboard"
 
 export default function Wordle() {
     const { solution, getSolution } = useFetch()
@@ -42,6 +43,7 @@ export default function Wordle() {
                 {turn === 6 && !(isCorrect) && (
                     <p className='outcome'>You lost!</p>
                 )}
+                <Keyboard />
             </main>
         </>
     )

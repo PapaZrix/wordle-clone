@@ -111,8 +111,32 @@ main {
   animation-delay: 0.85s;
 }
 
-@keyframes flip {
+.keyboard {
+  width: 45%;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
+.k-row {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.key {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  border: 1px solid lightgray;
+  padding: 0.25rem;
+}
+
+@keyframes flip {
   0% {
     transform: rotateX(0);
     background: white;
@@ -144,9 +168,11 @@ main {
     transform: scale(1);
     border-color: #ddd;
   }
+ 
   50% { 
     transform: scale(1.2);
   }
+ 
   100% {
     transform: scale(1);
     border-color: #333;

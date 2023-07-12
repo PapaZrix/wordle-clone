@@ -1,0 +1,5 @@
+const keys = [
+    { key: 'q', color: 'white' }, { key: 'w', color: 'white' }, { key: 'e', color: 'white' }, { key: 'r', color: 'white' }, { key: 't', color: 'white' }, { key: 'y', color: 'white' }, { key: 'u', color: 'white' }, { key: 'i', color: 'white' }, { key: 'o', color: 'white' }, { key: 'p', color: 'white' }, { key: 'a', color: 'white' }, { key: 's', color: 'white' }, { key: 'd', color: 'white' }, { key: 'f', color: 'white' }, { key: 'g', color: 'white' }, { key: 'h', color: 'white' }, { key: 'j', color: 'white' }, { key: 'k', color: 'white' }, { key: 'l', color: 'white' }, { key: 'del', color: 'white' }, { key: 'z', color: 'white' }, { key: 'x', color: 'white' }, { key: 'c', color: 'white' }, { key: 'v', color: 'white' }, { key: 'b', color: 'white' }, { key: 'n', color: 'white' }, { key: 'm', color: 'white' }, { key: 'enter', color: 'white' },
+]
+
+export default keys
