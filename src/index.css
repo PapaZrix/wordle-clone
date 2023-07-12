@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg-gray: #a4aec4;
+  --bg-yellow: #f3c237;
+  --bg-green: #5ac85a;
+}
+
 html {
   font-size: 62.5%;
   line-height: 1.6;
@@ -68,4 +74,49 @@ main {
 .outcome {
   text-align: center;
   margin-top: 1rem;
+}
+
+.gray {
+  --background: var(--bg-gray);
+  --border-color: var(--bg-gray);
+  animation: flip 0.5s ease forwards;
+}
+
+.yellow {
+  --background: var(--bg-yellow);
+  --border-color: var(--bg-yellow);
+  animation: flip 0.5s ease forwards;
+}
+
+.green {
+  --background: var(--bg-green);
+  --border-color: var(--bg-green);
+  animation: flip 0.5s ease forwards;
+}
+@keyframes flip {
+
+  0% {
+    transform: rotateX(0);
+    background: white;
+    border-color: lightgray;
+  }
+
+  45% {
+    transform: rotateX(90deg);
+    background: white;
+    border-color: lightgray;
+  }
+
+  55% {
+    transform: rotateX(90deg);
+    background: var(--background);
+    border-color: var(--border-color);
+  }
+
+  100% {
+    transform: rotateX(0);
+    background: var(--background);
+    border-color: var(--border-color);
+    color: white;
+  }
 }
