@@ -42,10 +42,10 @@ export default function Wordle() {
     return (
         <>
             <header>
+                <h1>Wordle</h1>
                 {turn > 0 && turn !== 6 && !(isCorrect) && (
                     <button onClick={giveUp} className='give-up'>Give up</button>
                 )}
-                <p>Solution: {solution}</p>
             </header>
             <main>
                 <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />

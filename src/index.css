@@ -27,11 +27,15 @@ button {
 
 header {
   padding: 1rem;
-  height: 7.5rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
+
+header h1 {
+  font-size: 4rem;
 }
 
 main {
