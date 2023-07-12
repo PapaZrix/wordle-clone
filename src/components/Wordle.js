@@ -3,14 +3,26 @@ import Grid from "./Grid"
 import useFetch from "../hooks/useFetch"
 import useWordle from "../hooks/useWordle"
 import Keyboard from "./Keyboard"
+import Modal from "./Modal"
 
 export default function Wordle() {
     const { solution, getSolution } = useFetch()
     const { giveUp, newGame, handleKeyup, turn, isCorrect, currentGuess, guesses } = useWordle(solution)
+    const [showModal, setShowModal] = useState(false)
     const [savedSolution, setSavedSolution] = useState('')
 
     useEffect(() => {
         window.addEventListener('keyup', handleKeyup)
+
+        if (isCorrect) {
+            setTimeout(() => setShowModal(true), 2000)
+            window.removeEventListener('keyup', handleKeyup)
+        } else if (turn > 5) {
+            setTimeout(() => setShowModal(true), 2000)
+            window.removeEventListener('keyup', handleKeyup)
+        } else {
+            setShowModal(false)
+        }
 
         return () => window.removeEventListener('keyup', handleKeyup)
 
@@ -44,6 +56,7 @@ export default function Wordle() {
                     <p className='outcome'>You lost!</p>
                 )}
                 <Keyboard />
+                {showModal && <Modal isCorrect={isCorrect} newGame={newGame} solution={savedSolution} turn={turn} />}
             </main>
         </>
     )

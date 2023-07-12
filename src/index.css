@@ -127,6 +127,7 @@ main {
 }
 
 .key {
+  background-color: white;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -134,6 +135,92 @@ main {
   text-transform: uppercase;
   border: 1px solid lightgray;
   padding: 0.25rem;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+}
+
+.modal-container {
+  height: 27.5rem;
+  width: 23.5rem;
+  background-color: white;
+  text-align: center;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-message {
+  padding: 0.5rem;
+  background-color: #f1f3f9;
+  font-weight: bold;
+}
+
+.modal-solution-container {
+  margin: 1rem 0;
+}
+
+.modal-solution-container p {
+  margin-bottom: 0.5rem;
+}
+
+.modal-solution-container span {
+  display: inline-block;
+  text-align: center;
+  width: 7.5rem;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  border: 1px solid #a4aec4;
+  border-style: dashed;
+  margin-bottom: 1rem;
+  background-color: #f1f3f9;
+  border-radius: 0.25rem;
+}
+
+.win {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 auto;
+}
+
+.win svg {
+  font-size: 2.5rem;
+}
+
+.btn-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-game {
+  width: 10rem;
+  padding: 0.5rem;
+  border: none;
+  color: white;
+  background-color: #16a34a;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.new-game:hover {
+  background-color: #22c55e;
 }
 
 @keyframes flip {
