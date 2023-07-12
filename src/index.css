@@ -77,6 +77,11 @@ main {
   font-size: 1.5rem;
   border-radius: 0.5rem;
   width: 8rem;
+  cursor: pointer;
+}
+
+.give-up:hover {
+  background-color: #cbd5e1;
 }
 
 .outcome {
