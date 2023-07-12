@@ -1,4 +1,5 @@
 import { useState } from "react";
+import keys from "../keys";
 
 export default function useWordle(solution) {
     const [turn, setTurn] = useState(0)
@@ -15,12 +16,27 @@ export default function useWordle(solution) {
         formatedGuess.forEach((l, i) => {
             if (solution[i] === l.key) {
                 formatedGuess[i].color = 'green'
+
+                const pos = keys.map(k => k.key).indexOf(l.key)
+                keys[pos].color = 'green'
             }
         })
 
         formatedGuess.forEach((l, i) => {
             if (solutionLetters.includes(l.key) && l.color !== 'green') {
                 formatedGuess[i].color = 'yellow'
+
+                const pos = keys.map(k => k.key).indexOf(l.key)
+                if (keys[pos].color !== 'green' && l.color !== 'green' && l.color !== 'gray') {
+                    keys[pos].color = 'yellow'
+                }
+            }
+        })
+
+        formatedGuess.forEach((l) => {
+            const pos = keys.map(key => key.key).indexOf(l.key)
+            if (keys[pos].color !== 'green' && keys[pos].color !== 'yellow') {
+                keys[pos].color = 'gray'
             }
         })
 
@@ -88,6 +104,10 @@ export default function useWordle(solution) {
         setCurrentGuess('')
         setTurn(0)
         setIsCorrect(false)
+
+        keys.forEach(k => {
+            k.color = 'white'
+        })
     }
 
     return { giveUp, newGame, handleKeyup, turn, currentGuess, guesses, isCorrect }
