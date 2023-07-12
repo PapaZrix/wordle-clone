@@ -269,3 +269,22 @@ main {
     border-color: #333;
   }
 }
+
+@media (max-width: 576px) {
+  header h1 {
+    margin-bottom: 2rem;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .keyboard {
+    margin-top: 3.5rem;
+    width: 100%;
+  }
+}
