@@ -32,7 +32,7 @@ export default function Wordle() {
 
             </header>
             <main>
-                <Grid />
+                <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
             </main>
         </>
     )
