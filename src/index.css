@@ -56,3 +56,16 @@ main {
   align-items: center;
   font-size: 1.75rem;
 }
+
+.give-up {
+  padding: 0.5rem;
+  border: none;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+  width: 7.5rem;
+}
+
+.outcome {
+  text-align: center;
+  margin-top: 1rem;
+}
