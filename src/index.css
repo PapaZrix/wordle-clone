@@ -63,6 +63,10 @@ main {
   font-size: 1.75rem;
 }
 
+.row.current > div.filled {
+  animation: bounce 0.2s ease-in-out forwards;
+}
+
 .give-up {
   padding: 0.5rem;
   border: none;
@@ -93,6 +97,20 @@ main {
   --border-color: var(--bg-green);
   animation: flip 0.5s ease forwards;
 }
+
+.row > div:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.row > div:nth-child(3) {
+  animation-delay: 0.45s;
+}
+.row > div:nth-child(4) {
+  animation-delay: 0.65s;
+}
+.row > div:nth-child(5) {
+  animation-delay: 0.85s;
+}
+
 @keyframes flip {
 
   0% {
@@ -118,5 +136,19 @@ main {
     background: var(--background);
     border-color: var(--border-color);
     color: white;
+  }
+}
+
+@keyframes bounce {
+  0% { 
+    transform: scale(1);
+    border-color: #ddd;
+  }
+  50% { 
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    border-color: #333;
   }
 }
