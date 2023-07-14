@@ -57,14 +57,11 @@ export default function Wordle() {
                     <h1 className={mode}>Wordle</h1>
                     <div className={`mode ${mode}`}>
                         {mode === 'light' ? (
-                            <button onClick={changeMode} className="mode-btn">
-                                <span className="material-symbols-outlined">
-                                    light_mode
-                                </span>
-                            </button>) : (<button onClick={changeMode} className="mode-btn">
-                                <span className={`material-symbols-outlined ${mode}`}>
-                                    dark_mode </span>
-                            </button>)
+                            <span onClick={changeMode} className="material-symbols-outlined">
+                                light_mode
+                            </span>) : (
+                            <span onClick={changeMode} className={`material-symbols-outlined ${mode}`}>
+                                dark_mode </span>)
                         }
                     </div>
                 </div>

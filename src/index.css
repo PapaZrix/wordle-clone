@@ -60,17 +60,15 @@ header h1.dark {
   transform: translate(-50%, -50%);  
 }
 
-.material-symbols-outlined.dark {
-  color: white;
-}
-
-.mode-btn {
+.material-symbols-outlined.dark, .material-symbols-outlined {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
-  background: transparent;
   cursor: pointer;
+}
+
+.material-symbols-outlined.dark {
+  color: white;
 }
 
 main {
@@ -109,6 +107,10 @@ main {
 
 .row.current > div.filled {
   animation: bounce 0.2s ease-in-out forwards;
+}
+
+.row.past > div.dark {
+  color: white;
 }
 
 .row.current > div.dark {
