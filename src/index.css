@@ -5,7 +5,7 @@
 }
 
 :root {
-  --bg-gray: #a4aec4;
+  --bg-gray: #6b7280;
   --bg-yellow: #f3c237;
   --bg-green: #5ac85a;
 }
@@ -19,6 +19,7 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   font-size: 1.6rem;
+  transition: all 0.4s ease-in-out;
 }
 
 button {
@@ -36,6 +37,40 @@ header {
 
 header h1 {
   font-size: 4rem;
+  transition: all 0.4s ease-in-out;
+}
+
+header h1.dark {
+  color: white;
+}
+
+.top {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mode {
+  position: absolute;
+  top: 50%;
+  left: 58%;
+  transform: translate(-50%, -50%);  
+}
+
+.material-symbols-outlined.dark {
+  color: white;
+}
+
+.mode-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
 main {
@@ -58,17 +93,31 @@ main {
 
 .row div {
   width: 20%;
-  border: 1px solid lightgray;
+  border: 1px solid var(--bg-gray);
   border-radius: 0.5rem;
   text-transform: uppercase;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2.75rem;
+  transition: all 0.4s ease-in-out;
+}
+
+.row div.dark {
+  background-color: #1f2937;
 }
 
 .row.current > div.filled {
   animation: bounce 0.2s ease-in-out forwards;
+}
+
+.row.current > div.dark {
+  color: white;
+}
+
+.row.current > div.filled.dark {
+  background-color: #1f2937;
+  color: white;
 }
 
 .give-up {
@@ -78,15 +127,32 @@ main {
   border-radius: 0.5rem;
   width: 8rem;
   cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 .give-up:hover {
+  transform: scale(1.1) translateZ(0);
   background-color: #cbd5e1;
+}
+
+.give-up.dark {
+  background-color: var(--bg-gray);
+  color: white;
+}
+
+.give-up.dark:hover {
+  background-color: #4b5563;
 }
 
 .outcome {
   text-align: center;
   margin-top: 1rem;
+}
+
+.outcome.dark {
+  color: white;
 }
 
 .gray {
@@ -142,8 +208,14 @@ main {
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
-  border: 1px solid lightgray;
+  border: 1px solid var(--bg-gray);
   padding: 0.25rem;
+  transition: all 0.4s ease-in-out;
+}
+
+.key.dark {
+  background-color: #1f2937;
+  color: white;
 }
 
 .modal {
@@ -236,13 +308,13 @@ main {
   0% {
     transform: rotateX(0);
     background: white;
-    border-color: lightgray;
+    border-color: var(--bg-gray);
   }
 
   45% {
     transform: rotateX(90deg);
     background: white;
-    border-color: lightgray;
+    border-color: var(--bg-gray);
   }
 
   55% {
@@ -276,10 +348,10 @@ main {
 }
 
 @media (max-width: 576px) {
-  header h1 {
-    margin-bottom: 2rem;
+  header {
+    width: 100%;
   }
-
+  
   #root {
     display: flex;
     flex-direction: column;
@@ -291,5 +363,9 @@ main {
   .keyboard {
     margin-top: 3.5rem;
     width: 100%;
+  }
+
+  .mode {
+    left: 77.5%;
   }
 }

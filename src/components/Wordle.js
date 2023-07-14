@@ -10,6 +10,7 @@ export default function Wordle() {
     const { giveUp, newGame, handleKeyup, turn, isCorrect, currentGuess, guesses } = useWordle(solution)
     const [showModal, setShowModal] = useState(false)
     const [savedSolution, setSavedSolution] = useState('')
+    const [mode, setMode] = useState('light')
 
     useEffect(() => {
         window.addEventListener('keyup', handleKeyup)
@@ -26,7 +27,7 @@ export default function Wordle() {
 
         return () => window.removeEventListener('keyup', handleKeyup)
 
-    }, [handleKeyup])
+    }, [handleKeyup, isCorrect, turn])
 
     useEffect(() => {
         getSolution()
@@ -39,23 +40,47 @@ export default function Wordle() {
         }
     }, [isCorrect, turn])
 
+    const changeMode = () => {
+        if (mode === 'light') {
+            document.body.style.backgroundColor = '#121212'
+            setMode('dark')
+        } else {
+            document.body.style.backgroundColor = null
+            setMode('light')
+        }
+    }
+
     return (
         <>
             <header>
-                <h1>Wordle</h1>
+                <div className="top">
+                    <h1 className={mode}>Wordle</h1>
+                    <div className={`mode ${mode}`}>
+                        {mode === 'light' ? (
+                            <button onClick={changeMode} className="mode-btn">
+                                <span className="material-symbols-outlined">
+                                    light_mode
+                                </span>
+                            </button>) : (<button onClick={changeMode} className="mode-btn">
+                                <span className={`material-symbols-outlined ${mode}`}>
+                                    dark_mode </span>
+                            </button>)
+                        }
+                    </div>
+                </div>
                 {turn > 0 && turn !== 6 && !(isCorrect) && (
-                    <button onClick={giveUp} className='give-up'>Give up</button>
+                    <button onClick={giveUp} className={`give-up ${mode}`}>Give up</button>
                 )}
             </header>
             <main>
-                <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
+                <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} mode={mode} />
                 {isCorrect === true && (
-                    <p className='outcome'>You won! Congratulations</p>
+                    <p className={`outcome ${mode}`}>You won! Congratulations</p>
                 )}
                 {turn === 6 && !(isCorrect) && (
-                    <p className='outcome'>You lost!</p>
+                    <p className={`outcome ${mode}`}>You lost!</p>
                 )}
-                <Keyboard />
+                <Keyboard mode={mode} />
                 {showModal && <Modal isCorrect={isCorrect} newGame={newGame} solution={savedSolution} turn={turn} />}
             </main>
         </>
