@@ -78,7 +78,7 @@ export default function Wordle() {
                     <p className={`outcome ${mode}`}>You lost!</p>
                 )}
                 <Keyboard mode={mode} handleClick={handleClick} />
-                {showModal && <Modal isCorrect={isCorrect} newGame={newGame} solution={savedSolution} turn={turn} />}
+                {showModal && <Modal mode={mode} isCorrect={isCorrect} newGame={newGame} solution={savedSolution} turn={turn} />}
             </main>
         </>
     )

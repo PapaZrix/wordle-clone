@@ -1,10 +1,10 @@
 import { FaTrophy } from 'react-icons/fa'
 
-export default function Modal({ solution, turn, isCorrect, newGame }) {
+export default function Modal({ solution, turn, isCorrect, newGame, mode }) {
 
     return (
         <div className='modal'>
-            <div className='modal-container'>
+            <div className={`modal-container ${mode}`}>
                 {isCorrect && (
                     <>
                         <p className='modal-message'>You Won!</p>

@@ -246,10 +246,20 @@ main {
   flex-direction: column;
 }
 
+.modal-container.dark {
+  background-color: #1f2937;
+  color: white;
+}
+
 .modal-message {
   padding: 0.5rem;
   background-color: #f1f3f9;
   font-weight: bold;
+}
+
+.modal-container.dark > .modal-message {
+  background-color: var(--bg-gray);
+  color: white;
 }
 
 .modal-solution-container {
@@ -271,6 +281,12 @@ main {
   margin-bottom: 1rem;
   background-color: #f1f3f9;
   border-radius: 0.25rem;
+}
+
+.modal-container.dark > .modal-solution-container span {
+  background-color: var(--bg-gray);
+  border: 1px solid #1f2937;
+  border-style: dashed;
 }
 
 .win {
