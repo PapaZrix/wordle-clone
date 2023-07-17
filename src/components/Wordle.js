@@ -7,7 +7,7 @@ import Modal from "./Modal"
 
 export default function Wordle() {
     const { solution, getSolution } = useFetch()
-    const { giveUp, newGame, handleKeyup, turn, isCorrect, currentGuess, guesses } = useWordle(solution)
+    const { giveUp, newGame, handleKeyup, turn, isCorrect, currentGuess, guesses, handleClick } = useWordle(solution)
     const [showModal, setShowModal] = useState(false)
     const [savedSolution, setSavedSolution] = useState('')
     const [mode, setMode] = useState('light')
@@ -77,7 +77,7 @@ export default function Wordle() {
                 {turn === 6 && !(isCorrect) && (
                     <p className={`outcome ${mode}`}>You lost!</p>
                 )}
-                <Keyboard mode={mode} />
+                <Keyboard mode={mode} handleClick={handleClick} />
                 {showModal && <Modal isCorrect={isCorrect} newGame={newGame} solution={savedSolution} turn={turn} />}
             </main>
         </>

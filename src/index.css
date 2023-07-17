@@ -213,6 +213,7 @@ main {
   border: 1px solid var(--bg-gray);
   padding: 0.25rem;
   transition: all 0.4s ease-in-out;
+  cursor: pointer;
 }
 
 .key.dark {
@@ -346,6 +347,12 @@ main {
   100% {
     transform: scale(1);
     border-color: #333;
+  }
+}
+
+@media (max-width: 950px) {
+  .mode {
+    left: 62.5%;
   }
 }
 

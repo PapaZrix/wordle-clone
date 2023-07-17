@@ -94,6 +94,39 @@ export default function useWordle(solution) {
         }
     }
 
+    const handleClick = ({ target }) => {
+        if (target.textContent === 'enter') {
+            if (turn > 5) {
+                console.log('No more guesses')
+                return
+            }
+
+            if (guesses.includes(currentGuess)) {
+                console.log('You have already tried that word')
+                return
+            }
+
+            if (currentGuess.length !== 5) {
+                console.log('Please enter full word')
+                return
+            }
+
+            const formatedGuess = formatGuess()
+            addNewGuess(formatedGuess)
+        }
+
+        if (target.textContent === 'del') {
+            setCurrentGuess(prev => prev.slice(0, -1))
+            return
+        }
+
+        if (/^[A-Za-z]$/.test(target.textContent)) {
+            if (currentGuess.length < 5) {
+                setCurrentGuess(prev => prev + target.textContent)
+            }
+        }
+    }
+
     const giveUp = () => {
         setTurn(6)
         setIsCorrect(false)
@@ -110,5 +143,5 @@ export default function useWordle(solution) {
         })
     }
 
-    return { giveUp, newGame, handleKeyup, turn, currentGuess, guesses, isCorrect }
+    return { giveUp, newGame, handleKeyup, turn, currentGuess, guesses, isCorrect, handleClick }
 }
